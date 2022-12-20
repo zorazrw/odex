@@ -1,0 +1,13 @@
+nltk
+scipy
+spacy
+sacrebleu
+rouge_score
+matplotlib
+torch
+datasets
+transformers
+accelerate
+evaluate
+openai
+tree-sitter==0.2.0
