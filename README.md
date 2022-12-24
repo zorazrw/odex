@@ -1,6 +1,17 @@
 # Execution-based Evaluation for Open Domain Code Generation
 
-This repository contains the data and code for the work [Execution-based Evaluation for Open Domain Code Generation]().
+This repository contains the data and code for the work [Execution-based Evaluation for Open Domain Code Generation](https://arxiv.org/pdf/2212.10481.pdf).
+
+If you find our paper or code useful, please cite the paper
+
+```
+@article{wang2022execution,
+  title={Execution-Based Evaluation for Open-Domain Code Generation},
+  author={Zhiruo Wang, Shuyan Zhou, Daniel Fried, Graham Neubig},
+  journal={arXiv preprint arXiv:2212.10481},
+  year={2022}
+}
+```
 
 ## Install
 
