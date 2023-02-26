@@ -10,15 +10,13 @@ Including 4 components:
 import os
 import re 
 import argparse 
+import evaluate
 from typing import List 
 
 from . import (
     bleu, weighted_ngram_match, 
     syntax_match, dataflow_match, 
 )
-
-from datasets import load_metric
-bleu_eval_metric = load_metric("bleu")
 from .nmt_bleu import compute_bleu
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -60,6 +58,7 @@ def calc_ngram_match(
     tokenized_refs: List[List[List[str]]], 
     bleu_option: str, 
 ) -> float: 
+    bleu_eval_metric = evaluate.load("bleu")
     if bleu_option == "hf": 
         hf_bleu_score = bleu_eval_metric.compute(
             predictions=tokenized_hyps, 

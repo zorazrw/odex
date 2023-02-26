@@ -21,24 +21,20 @@ Returns:
     'beta' (int): Determine the importance of recall w.r.t precision
 """
 
-
+import evaluate
 from typing import List 
 from metric.utils import tokenize_for_bleu_eval
-
-# from datasets import load_metric
-# chrf_eval_metric = load_metric("chrf")
-import evaluate
-chrf_eval_metric = evaluate.load("chrf")
 
 
 def compute_chrf(predictions: List[str], references: List[str]) -> float: 
     """Compute ChrF scores. """
+    chrf_eval_metric = evaluate.load("chrf")
     predictions = [
-        ' '.join(tokenize_for_bleu_eval(sample_pred))
+        tokenize_for_bleu_eval(sample_pred)
         for sample_pred in predictions
     ]
     references = [
-        [' '.join(tokenize_for_bleu_eval(sample_ref))] 
+        [tokenize_for_bleu_eval(sample_ref)] 
         for sample_ref in references
     ]
     chrf_scores = chrf_eval_metric.compute(
