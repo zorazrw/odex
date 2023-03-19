@@ -143,7 +143,7 @@ def main():
         num_tests=args.num_tests_input, 
         num_examples=args.num_examples, 
         fewshot_method=args.fewshot_method,
-        replace_function_name=args.replace_function_name, 
+        function_name=args.function_name, 
     )
     eval_sampler = SequentialSampler(eval_dataset)
 

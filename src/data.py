@@ -28,13 +28,13 @@ class Dataset(torch.utils.data.Dataset):
     def __init__(
         self, data: List[Dict], num_tests: int = 0, 
         num_examples: int = 0, fewshot_method: str = "random", 
-        replace_function_name: bool = False, 
+        function_name: str = "id", 
     ): 
         self.data = data
         self.num_tests = num_tests
         self.num_examples = num_examples
         self.fewshot_method = fewshot_method
-        self.replace_function_name = replace_function_name
+        self.function_name = function_name
 
         if self.fewshot_method == "short": 
             indexed_data = [(i, s) for i,s in enumerate(self.data)]
@@ -66,7 +66,7 @@ class Dataset(torch.utils.data.Dataset):
             sample=sample, 
             examples=examples, 
             num_tests=self.num_tests, 
-            replace_function_name=self.replace_function_name, 
+            function_name=self.function_name, 
         )
         return {
             "prompt": prompt, 

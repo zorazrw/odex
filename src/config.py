@@ -51,8 +51,11 @@ class Arguments():
         self.parser.add_argument("--fewshot_method", type=str, default="random", 
             choices=["random", "short"], 
             help="Method to select the prefix examples for prompt creation.")
-        self.parser.add_argument("--replace_function_name", action="store_true", 
-            help="If replacing function names to semantically meaningful ones from intents.")
+        self.parser.add_argument("--function_name", type=str, default="id", 
+            choices=["id", "constant", "intent"], 
+            help="Method to construct the function name. ")
+        # self.parser.add_argument("--replace_function_name", action="store_true", 
+        #     help="If replacing function names to semantically meaningful ones from intents.")
         
         # generation
         self.parser.add_argument("--max_length_input", type=int, default=512, 
