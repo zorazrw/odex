@@ -54,6 +54,8 @@ class Arguments():
         self.parser.add_argument("--function_name", type=str, default="id", 
             choices=["id", "constant", "intent"], 
             help="Method to construct the function name. ")
+        self.parser.add_argument("--strip_prompt", action="store_true",
+            help="Whether to strip the trailing whitespaces in the prompt. ")
         
         # generation
         self.parser.add_argument("--max_length_input", type=int, default=512, 

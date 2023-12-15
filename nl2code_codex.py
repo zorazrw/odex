@@ -110,6 +110,8 @@ def main():
             num_tests=args.num_tests, 
             function_name=args.function_name, 
         )
+        if args.strip_prompt:
+            prompt = prompt.rstrip()
 
         # collect code predictions 
         predictions = get_predictions(
@@ -180,7 +182,9 @@ if __name__ == "__main__":
     parser.add_argument("--fewshot_method", type=str, default="random", 
         choices=["random"], 
         help="Method to select the prefix examples for prompt creation.")
-    
+    parser.add_argument("--strip_prompt", action="store_true",
+        help="Whether to strip the trailing whitespaces in the prompt. ")
+
     parser.add_argument("--openai_api_key", type=str, default=None)
     parser.add_argument("--verbose", action="store_true")
 
